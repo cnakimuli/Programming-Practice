@@ -1,0 +1,50 @@
+// This is a program that prints a Fibonacci series that is a sequence of numbers like 
+// 0 1 1 2 3 5 8.You can vary the number of elements to be printed meaning you 
+// can print 10 numbers or 15 or 20 or any desired number.
+
+
+import java.util.Scanner;
+public class Fibonacci {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.print("Enter integer:"); 
+		
+		Scanner input = new Scanner(System.in);
+		int integer = input.nextInt();
+		
+		int answer = recursion(integer);
+		System.out.println("Recursion method: "+ answer);
+		
+		System.out.println("Sequence method: ");
+		for (int i = 1; i <= integer; i++){
+			
+			System.out.print(sequence(i) +" ");
+		}
+	}
+	
+	public static int recursion (int a){
+		if (a == 1 || a == 2) return 1;
+		else
+			//return a + recursion(a-2);
+		return recursion(a - 1) + recursion(a -2);
+	}
+	
+	public static int sequence (int num){
+		if (num == 1 || num == 2) return 1;
+		
+		int num1 = 1;
+		int	num2 = 1;
+		int	sum = 1;
+		
+		for(int i = 3; i <= num; i++){
+			sum = num1 + num2;
+			num1 = num2;
+			num2 = sum;
+		}
+		return sum;
+	}
+	
+
+}
